@@ -1,4 +1,5 @@
 class itemType{
+    //class type for items might change to enum later
     private String itemTypeName;
 
     public String getItemTypeName() { return itemTypeName; }
@@ -8,6 +9,7 @@ class itemType{
 
 public class Item {
 
+    //attributes of item
     private String item_name;
     private int item_Id;
     private int price_per_unit;
