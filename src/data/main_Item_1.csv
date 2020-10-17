@@ -1,6 +1,0 @@
-lobster,0,12,consumable,12
-"""item_name"" : {""lobster""},
-""item_id"" : ""5107"",
-""pric_per_unit"" : 12.99,
-""item_type"" : ""consumable""",1,NULL,NULL,NULL
-bread,2,5,consumable,50

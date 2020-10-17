@@ -1,9 +1,0 @@
-table,Item,Item,3,"CREATE TABLE ""Item""
-(
-	item_name VARCHAR,
-	item_Id INTEGER
-		primary key,
-	price_per_unit INTEGER,
-	item_type VARCHAR,
-	quantity integer
-)"

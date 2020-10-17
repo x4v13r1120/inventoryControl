@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="inventoryControl.sqlite" uuid="8794327b-1219-4731-87c1-0382ca787c22">
+    <data-source source="LOCAL" name="SQLite - inventoryControl.sqlite" uuid="8794327b-1219-4731-87c1-0382ca787c22">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:inventoryControl.sqlite</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\Xavier Naranjo\IdeaProjects\inventoryControl_v1.2\src\data\bin</jdbc-url>
       <keep-alive enable="true" />
       <auto-close enable="true" />
     </data-source>

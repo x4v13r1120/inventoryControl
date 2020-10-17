@@ -3,37 +3,34 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="1350.0" y="0.0">Order</node>
-    <node x="1168.0" y="0.0">Item</node>
-    <node x="1981.0" y="0.0">itemType</node>
-    <node x="1550.0" y="0.0">Employee</node>
-    <node x="467.0" y="313.5">CSVParser</node>
-    <node x="2174.0" y="0.0">Meal</node>
-    <node x="0.0" y="0.0">java.sql.DatabaseMetaData</node>
-    <node x="1787.0" y="0.0">main</node>
-    <node x="694.0" y="303.0">JSONParser</node>
-    <node x="580.5" y="0.0">ResourceParser</node>
-    <node x="946.0" y="0.0">Inventory</node>
+    <node x="0.0" y="667.0">Order</node>
+    <node x="705.0" y="0.0">Item</node>
+    <node x="435.0" y="667.0">itemType</node>
+    <node x="198.0" y="667.0">Employee</node>
+    <node x="0.0" y="313.5">CSVParser</node>
+    <node x="0.0" y="832.0">Meal</node>
+    <node x="627.0" y="667.0">main</node>
+    <node x="230.0" y="303.0">JSONParser</node>
+    <node x="115.0" y="0.0">ResourceParser</node>
+    <node x="485.0" y="0.0">Inventory</node>
   </nodes>
   <notes />
   <edges>
     <edge source="CSVParser" target="ResourceParser">
       <point x="0.0" y="-149.0" />
-      <point x="570.5" y="278.0" />
-      <point x="632.25" y="278.0" />
-      <point x="-51.75" y="126.5" />
+      <point x="105.0" y="278.0" />
+      <point x="167.5" y="278.0" />
+      <point x="-52.5" y="126.5" />
     </edge>
     <edge source="JSONParser" target="ResourceParser">
       <point x="0.0" y="-159.5" />
-      <point x="797.5" y="278.0" />
-      <point x="735.75" y="278.0" />
-      <point x="51.75" y="126.5" />
+      <point x="335.0" y="278.0" />
+      <point x="272.5" y="278.0" />
+      <point x="52.5" y="126.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.6311111111111111" x="-45.59154929577471" y="450.00000000000006" />
-  <SelectedNodes>
-    <node>java.sql.DatabaseMetaData</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="0.716335540838852" x="420.0" y="443.00000000000006" />
+  <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
     <Category>Constructors</Category>

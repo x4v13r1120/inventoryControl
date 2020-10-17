@@ -1,9 +1,0 @@
-[
-  {
-    "type": "table",
-    "name": "Item",
-    "tbl_name": "Item",
-    "rootpage": 3,
-    "sql": "CREATE TABLE \"Item\"\n(\n\titem_name VARCHAR,\n\titem_Id INTEGER\n\t\tprimary key,\n\tprice_per_unit INTEGER,\n\titem_type VARCHAR,\n\tquantity integer\n)"
-  }
-]
