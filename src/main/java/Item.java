@@ -1,19 +1,20 @@
+import java.math.BigDecimal;
 
 public class Item {
 
     //attributes of item
     private String item_name;
     private int item_Id;
-    private int price_per_unit;
+    private BigDecimal price_per_unit;
     private String item_type;
     private int quantity;
 
     //GETTERS AND SETTERS
-    public int getPricePerUnit() {
+    public BigDecimal getPricePerUnit() {
         return price_per_unit;
     }
 
-    public void setPricePerUnit(int price_per_unit) {
+    public void setPricePerUnit(BigDecimal price_per_unit) {
         this.price_per_unit = price_per_unit;
     }
 

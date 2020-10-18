@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.sql.*;
 
 /**
@@ -25,23 +26,22 @@ public class SqlManager {
     }
 
     /**
-     * select all rows in the item table
+     * select one row in the item table
      */
-    public void selectAll() {
-        String sql = "SELECT item_Id, item_name, price_per_unit, item_type, quantity FROM item";
+    public void selectOne(int item_id) {
+        String sql = "SELECT item_Id, item_name, price_per_unit, item_type, quantity FROM item WHERE item_id = ?";
 
         try (Connection conn = this.connect();
              Statement stmt = conn.createStatement();
              ResultSet rs = stmt.executeQuery(sql)) {
 
-            // loop through the result set
-            while (rs.next()) {
-                System.out.println(rs.getInt("item_Id") + "\t" +
-                        rs.getString("item_name") + "\t" +
-                        rs.getInt("price_per_unit") + "\t" +
-                        rs.getString("item_type") + "\t" +
-                        rs.getInt("quantity"));
-            }
+
+            System.out.println(rs.getInt("item_Id") + "\t" +
+                    rs.getString("item_name") + "\t" +
+                    rs.getBigDecimal("price_per_unit") + "\t" +
+                    rs.getString("item_type") + "\t" +
+                    rs.getInt("quantity"));
+
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -56,14 +56,14 @@ public class SqlManager {
      * @param item_type
      * @param quantity
      */
-    public void add(String item_name, int item_Id, int price_per_unit, String item_type, int quantity) {
+    public void add(String item_name, int item_Id, BigDecimal price_per_unit, String item_type, int quantity) {
         String sql = "INSERT INTO item(item_name, item_Id,price_per_unit,item_type,quantity) VALUES(?,?,?,?,?)";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, item_name);
             pstmt.setInt(2, item_Id);
-            pstmt.setInt(3, price_per_unit);
+            pstmt.setBigDecimal(3, price_per_unit);
             pstmt.setString(4, String.valueOf(item_type));
             pstmt.setInt(5, quantity);
             pstmt.executeUpdate();
@@ -80,19 +80,19 @@ public class SqlManager {
      * @param item_type
      * @param quantity
      */
-    public void update(String item_name, int price_per_unit, String item_type, int quantity) {
+    public void update(String item_name, BigDecimal price_per_unit, String item_type, int quantity) {
         String sql = "UPDATE item SET item_name = ? , "
                 + "price_per_unit = ? "
                 + "item_type = ?"
                 + "quantity = ?"
-                + "WHERE item_name = ?";
+                + "WHERE item_Id = ?";
 
         try (Connection conn = this.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             // set the corresponding param
             pstmt.setString(1, item_name);
-            pstmt.setInt(2, price_per_unit);
+            pstmt.setBigDecimal(2, price_per_unit);
             pstmt.setString(3, item_type);
             pstmt.setInt(4, quantity);
             // update
