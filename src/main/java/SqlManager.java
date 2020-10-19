@@ -29,7 +29,7 @@ public class SqlManager {
      * select all rows in the item table
      */
     public void selectAll() {
-        String sql = "SELECT item_name, price_per_unit, item_type, quantity FROM item WHERE item_id = ? ";
+        String sql = "SELECT item_name, price_per_unit, item_type, quantity FROM item ";
 
         try (Connection conn = this.connect();
              Statement stmt = conn.createStatement();
@@ -37,11 +37,10 @@ public class SqlManager {
 
             // loop through the result set
             while (rs.next()) {
-                System.out.println(rs.getString("item_name") + "\t" +
-                        rs.getString("item_type") + "\t" +
-                        rs.getBigDecimal("price_per_unit") + "\t" +
-                        rs.getBigDecimal("price_per_unit") + "\t" +
-                        rs.getInt("quantity"));
+                System.out.println("Name: " + rs.getString("item_name") + "\t" +
+                        "Type: " + rs.getString("item_type") + "\t" +
+                        "Price Per Unit: " + rs.getBigDecimal("price_per_unit") + "\t" +
+                        "Quantity: " + rs.getInt("quantity"));
             }
 
         } catch (SQLException e) {
