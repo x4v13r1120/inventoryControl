@@ -1,13 +1,9 @@
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Inventory {
     SqlManager manager = new SqlManager();
 
-    private final List<Integer> itemIdNumbers = new ArrayList<>();
-    private final List<Item> items = new ArrayList<>();
     private BigDecimal price;
 
     //prompts user for new item specs.  Only a manager option
@@ -30,14 +26,8 @@ public class Inventory {
         item.setQuantity(keyboard.nextInt());
 
         System.out.println("Thank you, your item has been added.");
-        items.add(item);
-        itemIdNumbers.add(item.getIdNumber());
 
-        //need to create loop where whenever a new item is created it sets it number in the list to its id number.
-        for (int i = 0; i < 0; i++) {
-            item.setIdNumber(i);
-        }
-        manager.add(item.getName(), item.getIdNumber(), item.getPricePerUnit(), item.getItem_type(), item.getQuantity());
+        manager.add(item.getName(), item.getPricePerUnit(), item.getItem_type(), item.getQuantity());
 
         keyboard.close();
     }
@@ -55,45 +45,34 @@ public class Inventory {
         keyboard.close();
     }
 
-    //grab item user is asking for by prompting for id and checks if id is correct
-    //returns an item
-    protected Item selectItem() {
-        Scanner keyboard = new Scanner(System.in);
 
-        System.out.println("Please enter the id of the item you wish to select.");
-        int itemId = keyboard.nextInt();
+    protected void printItems() {
+        manager.selectAll();
 
-        if (itemIdNumbers.contains(itemId)) {
-            return items.get(itemId);
-        } else {
-            System.out.println("Invalid item id number.");
-        }
-        keyboard.close();
-        return null;
     }
 
     //ask user if they want to change any aspect of an item only a manager option
     protected void updateItem() {
+        Item item = new Item();
         Scanner keyboard = new Scanner(System.in);
+        System.out.println("Please enter the id of the item you wish to select.");
+        item.setIdNumber(keyboard.nextInt());
 
         System.out.println("Enter new name or current name if no change.");
-        selectItem().setName(keyboard.nextLine());
+        item.setName(keyboard.next());
 
         System.out.println("Enter new price per unit or current price if no change.");
-        selectItem().setPricePerUnit(keyboard.nextBigDecimal());
+        item.setPricePerUnit(keyboard.nextBigDecimal());
 
         System.out.println("Enter new item type or current if no change.");
-        selectItem().setItem_type(keyboard.nextLine());
+        item.setItem_type(keyboard.next());
 
         System.out.println("Enter new quantity or current if no change.");
-        selectItem().setQuantity(keyboard.nextInt());
+        item.setQuantity(keyboard.nextInt());
 
         //String item_name, int item_Id, BigDecimal price_per_unit, String item_type, int quantity
-        String name = selectItem().getName();
-        BigDecimal price = selectItem().getPricePerUnit();
-        String type = selectItem().getItem_type();
-        int quantity = selectItem().getQuantity();
-        manager.update(name, price, type, quantity);
+
+        manager.update(item.getIdNumber(), item.getName(), item.getPricePerUnit(), item.getItem_type(), item.getQuantity());
 
         keyboard.close();
 
