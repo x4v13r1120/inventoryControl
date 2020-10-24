@@ -11,19 +11,20 @@ public class Inventory {
     //should add to database/file
     protected void addItem() throws IOException {
         Item item = new Item();
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Please enter item name.");
-        item.setName(validateString());
+        item.setName(scanner.nextLine());
 
         System.out.println("Please enter the item type.");
-        item.setItem_type((validateString()));
+        item.setItem_type(scanner.nextLine());
 
         System.out.println("Please enter the price per unit.");
-        setPrice(validateBigDecimal());
+        setPrice(scanner.nextBigDecimal());
         item.setPricePerUnit(getPrice());
 
         System.out.println("Please enter the quantity.");
-        item.setQuantity(validateInteger());
+        item.setQuantity(scanner.nextInt());
 
         System.out.println("Thank you, your item has been added.");
 
@@ -35,8 +36,9 @@ public class Inventory {
     //should remove from database
     protected void deleteItem() throws IOException {
 
+        Scanner scanner = new Scanner(System.in);
         System.out.println("What item are you removing ? Please type the item id number.");
-        int itemId = (validateInteger());
+        int itemId = (scanner.nextInt());
 
         System.out.println("Thank you, your item has now been deleted.");
         manager.delete(itemId);
@@ -51,21 +53,22 @@ public class Inventory {
     //ask user if they want to change any aspect of an item only a manager option
     protected void updateItem() throws IOException {
         Item item = new Item();
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Please enter the id of the item you wish to select.");
-        item.setIdNumber((validateInteger()));
+        item.setIdNumber(scanner.nextInt());
 
         System.out.println("Enter new name or current name if no change.");
-        item.setName((validateString()));
+        item.setName(scanner.nextLine());
 
         System.out.println("Enter new price per unit or current price if no change.");
-        item.setPricePerUnit((validateBigDecimal()));
+        item.setPricePerUnit(scanner.nextBigDecimal());
 
         System.out.println("Enter new item type or current if no change.");
-        item.setItem_type((validateString()));
+        item.setItem_type(scanner.nextLine());
 
         System.out.println("Enter new quantity or current if no change.");
-        item.setQuantity(validateInteger());
+        item.setQuantity(scanner.nextInt());
 
         //String item_name, int item_Id, BigDecimal price_per_unit, String item_type, int quantity
 

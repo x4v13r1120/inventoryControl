@@ -15,7 +15,7 @@ public class SqlManager {
      */
     private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:D:\\IdeaProjects\\inventoryControl_v1.2\\src\\data\\inventory";
+        String url = "jdbc:sqlite:C:\\Users\\Xavier Naranjo\\IdeaProjects\\inventoryControl_v1.3\\src\\data\\inventory";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);
